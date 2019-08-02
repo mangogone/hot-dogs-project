@@ -1,0 +1,43 @@
+extends layout
+
+block content
+
+  div.jumbotron
+    h1.display-4 Hot Dog World
+    p.lead Welcome to our list of delicious hot dogs!
+
+  table.table.table-bordered.table-hover
+    thead
+      tr
+        th.col-1
+        th.col-4 Name
+        th.col-5 Description
+        th.col-1
+        th.col-1
+    tbody#list-body
+      // This will be filled dynamically
+
+  button(type='button' class='btn btn-primary' id='create-button') Create Hot Dog
+
+  .modal#hotdog-form
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h5.modal-title Modal title
+          button(type="button" class="close" data-dismiss="modal")
+          span &times;
+        .modal-body
+          form
+            .form-group
+              label(for="name") Name
+              input(type="text" class="form-control" id="name" placeholder="Enter hot dog name")
+            .form-group
+              label(for="description") Description
+              input(type="text" class="form-control" id="description" placeholder="Enter hot dog description")
+            input(type="hidden" id="id")
+            input(type="hidden" id="op")
+        .modal-footer
+          button(type="button" class="btn btn-secondary" data-dismiss="modal") Close
+          button(type="button" class="btn btn-primary" id="ok-button") OK
+
+  script(type='text/javascript' src='/js/index.js')
